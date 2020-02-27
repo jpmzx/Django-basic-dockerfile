@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  app:
+    image: "djangomyprojec"
+    command: "gunicorn --access-logfile {{ app_log_dir }}/{{app_name}}_log_file {{extra_gunicorn_args}} --bind unix:/opt/pymis/socks/{{app_name}}/{{app_name}}.sock config.wsgi"
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./:/app/shared/"
