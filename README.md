@@ -9,6 +9,9 @@
     - [Crear proyecto Django](#crear-proyecto-django)
     - [Ejecutar proyecto Django](#ejecutar-proyecto-django)
   - [Iniciando con Docker](#iniciando-con-docker)
+    - [Compilando imagen](#compilando-imagen)
+    - [Ejecutando imagen](#ejecutando-imagen)
+  - [Iniciando con Docker-compose](#iniciando-con-docker-compose)
 
 ## Instalar Docker
 
@@ -87,11 +90,33 @@ http://localhost:8000
 
 ## Iniciando con Docker
 
+### Compilando imagen
+
 Crear el dockerfile
 
 ejecutar
 
-$ docker build . -t myproject:latest
+$ docker build . -t djangomyproject:latest
+
+### Ejecutando imagen
+
+$ docker run -p 8000:8000 djangomyproject python manage.py runserver 0:8000
 
 
+## Iniciando con Docker-compose
 
+Docs https://docs.docker.com/compose/install/
+
+Descargar binarios
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+
+Dar permisos sobre binarios
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+
+Linkear al usr bin local
+
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
