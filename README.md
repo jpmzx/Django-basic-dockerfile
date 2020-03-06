@@ -68,7 +68,7 @@ $ cd myproject_env
 ### Crear y activar entorno virtual
 
 ```bash
-$ virtualenv myproject
+$ virtualenv -p /usr/bin/python3 myproject
 $ source myproject/bin/activate
 ```
 
