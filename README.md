@@ -61,8 +61,8 @@ $ sudo apt-get install git \
 
 ```bash
 $ cd ~
-$ mkdir djangodocker
-$ cd djangodocker
+$ mkdir myproject_env
+$ cd myproject_env
 ```
 
 ### Crear y activar entorno virtual
@@ -76,6 +76,7 @@ $ source myproject/bin/activate
 
 ```bash
 $ pip install Django
+$ cd ..
 $ django-admin startproject myproject
 $ cd  myproject
 ```
@@ -92,16 +93,19 @@ http://localhost:8000
 
 ### Compilando imagen
 
-Crear el dockerfile
+Crear el Dockerfile
 
-ejecutar
+Eejecutar
 
+```bash
 $ docker build . -t djangomyproject:latest
+```
 
 ### Ejecutando imagen
 
+```bash
 $ docker run -p 8000:8000 djangomyproject python manage.py runserver 0:8000
-
+```
 
 ## Iniciando con Docker-compose
 
@@ -109,14 +113,19 @@ Docs https://docs.docker.com/compose/install/
 
 Descargar binarios
 
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
+```bash
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
 
 Dar permisos sobre binarios
 
-sudo chmod +x /usr/local/bin/docker-compose
-
+```bash
+$ sudo chmod +x /usr/local/bin/docker-compose
+```
 
 Linkear al usr bin local
 
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```bash
+$ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```
+
